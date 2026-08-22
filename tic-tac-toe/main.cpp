@@ -3,7 +3,14 @@
 #include <limits>
 using namespace std;
 
-void clr() {cout << "\033[2J\033[H";}
+void clr()
+{
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
 
 void drawBoard(char board[9])
 {
